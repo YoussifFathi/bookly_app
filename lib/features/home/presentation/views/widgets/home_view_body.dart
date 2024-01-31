@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utilities/stylies_handler.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view/custom_best_seller_list_view_builder.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view/featured_book_list_view_builder.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/home_view_app_bar.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/hight_light_list_view/custom_hight_light_list_view_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              CustomHightLightListViewBuilder(),
+              FeaturedBooksListViewBuilder(),
               SizedBox(
                 height: 40,
               ),

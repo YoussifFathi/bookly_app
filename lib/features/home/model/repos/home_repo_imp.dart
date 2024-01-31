@@ -6,10 +6,12 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImp extends HomeRepo {
+  final ApiHandler _apiHandler;
+  HomeRepoImp(this._apiHandler);
   @override
   Future<Either<Failures, List<BookModel>>> fetchNewestBooks() async {
     try {
-      var jsonData = await ApiHandler().get(
+      var jsonData = await _apiHandler.get(
           endPoints:
               'volumes?q=subject:programming&filtering=free-ebooks&sorting=newest');
       List<BookModel> bookModelList = [];
@@ -29,7 +31,7 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failures, List<BookModel>>> fetchFeaturedBook() async {
     try {
-      var jsonData = await ApiHandler().get(
+      var jsonData = await _apiHandler.get(
           endPoints:
           'volumes?q=subject:programming&filtering=free-ebooks');
       List<BookModel> bookModelList = [];

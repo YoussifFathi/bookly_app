@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/hight_light_list_view/custom_book_image.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class SimilliarBooksListViewBuilder extends StatelessWidget {

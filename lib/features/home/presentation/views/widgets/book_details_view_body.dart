@@ -2,7 +2,7 @@ import 'package:bookly_app/core/utilities/stylies_handler.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view/custom_rating_row.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_but_and_preview_row.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/hight_light_list_view/custom_book_image.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view/custom_book_image.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/smilliar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
