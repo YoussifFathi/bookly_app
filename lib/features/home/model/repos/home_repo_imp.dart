@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 
 class HomeRepoImp extends HomeRepo {
   @override
-  Future<Either<Failures, List<BookModel>>> fetchNewBooks() async {
+  Future<Either<Failures, List<BookModel>>> fetchNewestBooks() async {
     try {
       var jsonData = await ApiHandler().get(
           endPoints:
