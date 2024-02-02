@@ -66,7 +66,7 @@ class _BookDetailsViewBodyState extends State<BookDetailsViewBody> {
               const SizedBox(
                 height: 30,
               ),
-              const CustomBuyAndPreviewRow(),
+              CustomBuyAndPreviewRow(previewLink: widget.bookModel.previewLink),
               const SizedBox(
                 height: 40,
               ),

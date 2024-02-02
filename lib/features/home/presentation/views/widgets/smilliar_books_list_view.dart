@@ -30,15 +30,12 @@ class SimilliarBooksListViewBuilder extends StatelessWidget {
             ),
           );
         } else if (state is SimiliarBooksLoadingState) {
-          return const SliverToBoxAdapter(
-            child: CustomLoadingWidget(),
-          );
+          return CustomLoadingWidget();
         } else {
-          return SliverToBoxAdapter(
-              child: CustomErrorWidget(
-                  errorMessage: state is SimiliarBooksFailureState
-                      ? state.errorMessage
-                      : 'error'));
+          return CustomErrorWidget(
+              errorMessage: state is SimiliarBooksFailureState
+                  ? state.errorMessage
+                  : 'error');
         }
       },
     );

@@ -1,9 +1,10 @@
 import 'package:bookly_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomBuyAndPreviewRow extends StatelessWidget {
-  const CustomBuyAndPreviewRow({super.key});
-
+  const CustomBuyAndPreviewRow({super.key,required this.previewLink});
+  final String previewLink;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +24,16 @@ class CustomBuyAndPreviewRow extends StatelessWidget {
             backgroundColor: const Color(0xffEF8262),
             textColor: Colors.white,
             borderRadius: const  BorderRadius.only(bottomRight: Radius.circular(16),topRight: Radius.circular(16)),
-            onTap: () {},
+            onTap: () async {
+              final Uri url =Uri.parse(previewLink);
+              print(url);
+                if(await canLaunchUrl(url)){
+                  launchUrl(url);
+                }else{
+                  print("cant launch url");
+                }
+
+            },
           ),
         ),
 

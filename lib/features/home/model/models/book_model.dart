@@ -7,15 +7,19 @@ class BookModel {
   int ratingsCount;
   double price;
   String category;
+  String previewLink;
 
-  BookModel({required this.id,
+  BookModel({
+    required this.id,
     required this.title,
     required this.author,
     required this.averageRating,
     required this.ratingsCount,
     required this.price,
     this.imageUrl,
-    required this.category,});
+    required this.category,
+    required this.previewLink,
+  });
 
   factory BookModel.fromJson(jsonData) {
     return BookModel(
@@ -23,12 +27,11 @@ class BookModel {
       title: jsonData['volumeInfo']['title'],
       author: jsonData['volumeInfo']['authors'][0],
       imageUrl: jsonData['volumeInfo']['imageLinks']?['thumbnail'],
-      averageRating: (jsonData['volumeInfo']['averageRating'])?.toDouble() ??
-          0,
+      averageRating:
+      (jsonData['volumeInfo']['averageRating'])?.toDouble() ?? 0,
       ratingsCount: (jsonData['volumeInfo']['ratingsCount'])?.toInt() ?? 0,
       price: 25.2,
-      category: jsonData['volumeInfo']['categories'][0]
-
-    );
+      category: jsonData['volumeInfo']['categories'][0],
+      previewLink: jsonData['volumeInfo']['previewLink'],);
   }
 }
