@@ -1,5 +1,4 @@
 import 'package:bookly_app/core/utilities/stylies_handler.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view/custom_book_conatiner.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultsListView extends StatelessWidget {
@@ -26,11 +25,14 @@ class SearchResultsListView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              CustomBookContainer()
+              // CustomBookContainer()
             ],
           );
         } else {
-          return const CustomBookContainer();
+          return const SizedBox(
+            height: 20,
+          );
+          // return const CustomBookContainer();
         }
       },
       itemCount: 10,

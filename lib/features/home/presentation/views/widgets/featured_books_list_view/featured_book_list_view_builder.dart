@@ -11,31 +11,38 @@ class FeaturedBooksListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
-  builder: (context, state) {
-
-    if(state is FeaturedBooksSucessfulState){
-      return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
-        child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: const EdgeInsets.only(right: 16),
+      builder: (context, state) {
+        if (state is FeaturedBooksSucessfulState) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 16),
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  child: CustomBookImage(
+                      imageUrl: state.bookModelList[index].imageUrl),
+                );
+              },
+              itemCount: state.bookModelList.length,
+            ),
+          );
+        } else if (state is FeaturedBooksLoadingState) {
+          return SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
-
-              child:  CustomBookIamge(imageUrl: state.bookModelList[index].imageUrl),
-            );
-          },
-          itemCount: state.bookModelList.length,
-        ),
-      );
-    }else if(state is FeaturedBooksLoadingState){
-      return const CustomLoadingWidget();
-    }else{
-      return CustomErrorWidget(errorMessage: state is FeaturedBooksFailureState ? state.errorMessage : "error");
-    }
-  },
-);
+              child: const CustomLoadingWidget());
+        } else {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: CustomErrorWidget(
+                errorMessage: state is FeaturedBooksFailureState
+                    ? state.errorMessage
+                    : "error"),
+          );
+        }
+      },
+    );
   }
 }
